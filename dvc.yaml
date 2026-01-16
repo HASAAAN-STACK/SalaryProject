@@ -1,9 +1,8 @@
 stages:
-  train:
-    cmd: python src/train.py
+  serve_flask:
+    cmd: python app.py
     deps:
-    - Data/processed/X_train.csv
-    - Data/processed/y_train.csv
-    - src/train.py
-    outs:
-    - models/linear_salary_model.pkl
+      - app.py
+      - models/salary_model.pkl
+    params:
+      - serve_port

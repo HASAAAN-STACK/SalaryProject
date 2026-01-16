@@ -48,3 +48,31 @@ stages:
       hash: md5
       md5: 470eec89f7d985728d4be3a8d02401c4
       size: 847
+  serve:
+    cmd: python -m uvicorn app:app --host 0.0.0.0 --port 8000
+    deps:
+    - path: app.py
+      hash: md5
+      md5: c184cbf5cf64c291348a451d678dab23
+      size: 761
+    - path: models/salary_model.pkl
+      hash: md5
+      md5: 470eec89f7d985728d4be3a8d02401c4
+      size: 847
+    params:
+      params.yaml:
+        serve_port: 8000
+  serve_flask:
+    cmd: python app.py
+    deps:
+    - path: app.py
+      hash: md5
+      md5: b20bbd42f860b94b4225e896da82aa1e
+      size: 976
+    - path: models/salary_model.pkl
+      hash: md5
+      md5: eefd26615cf382f46cefb49271b7a95d
+      size: 548
+    params:
+      params.yaml:
+        serve_port: 8000
