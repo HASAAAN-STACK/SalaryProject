@@ -1,0 +1,9 @@
+stages:
+  train:
+    cmd: python src/train.py
+    deps:
+    - Data/processed/X_train.csv
+    - Data/processed/y_train.csv
+    - src/train.py
+    outs:
+    - models/linear_salary_model.pkl
